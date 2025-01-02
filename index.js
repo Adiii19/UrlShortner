@@ -1,7 +1,6 @@
 const express=require('express')
 const app=express()
 require('dotenv').config();
-const MONGO_URI = process.env.MONGO_URI;
 
 const URL=require('./models/url')
 const {connectToMongoDb}=require('./connect')
@@ -17,7 +16,7 @@ const PORT=8001;
 
 
 const urlRoute=require('./routes/url')
-app.use(cors);
+app.use(cors());
 app.use("/url",urlRoute)
 
 app.get("/:shortId",async (req,res)=> {
