@@ -6,7 +6,8 @@ const MONGO_URI = process.env.MONGO_URI;
 const URL=require('./models/url')
 const {connectToMongoDb}=require('./connect')
 
-connectToMongoDb(MONGO_URI).then(
+connectToMongoDb('mongodb+srv://adityamhatre2003:W17T8aRZgo0yfG3E@urlshortner.mbhqj.mongodb.net/short-url?retryWrites=true&w=majority'
+).then(
     console.log('Mongo connected successfully')
 )
 app.use(express.json())
