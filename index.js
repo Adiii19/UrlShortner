@@ -7,10 +7,11 @@ connectToMongoDb('mongodb://127.0.0.1:27017/short-url').then(
     console.log('Mongo connected successfully')
 )
 app.use(express.json())
+const cors=require('cors');
 const PORT=8001;
 
 const urlRoute=require('./routes/url')
-
+app.use(cors);
 app.use("/url",urlRoute)
 
 app.get("/:shortId",async (req,res)=> {
