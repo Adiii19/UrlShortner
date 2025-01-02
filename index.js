@@ -1,14 +1,19 @@
 const express=require('express')
 const app=express()
+require('dotenv').config();
+const MONGO_URI = process.env.MONGO_URI;
+
 const URL=require('./models/url')
 const {connectToMongoDb}=require('./connect')
 
-connectToMongoDb('mongodb://127.0.0.1:27017/short-url').then(
+connectToMongoDb(MONGO_URI).then(
     console.log('Mongo connected successfully')
 )
 app.use(express.json())
 const cors=require('cors');
 const PORT=8001;
+
+
 
 const urlRoute=require('./routes/url')
 app.use(cors);
